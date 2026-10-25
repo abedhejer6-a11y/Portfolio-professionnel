@@ -1,0 +1,1111 @@
+/* ==========================
+   1. BASE ET COULEURS
+========================== */
+
+
+:root {
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --surface-light: #f1f5f9;
+    --text: #172033;
+    --muted: #64748b;
+    --accent: #2563eb;
+    --accent-dark: #1d4ed8;
+    --border: #e2e8f0;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: min(1120px, 90%);
+    margin: 0 auto;
+}
+
+section {
+    scroll-margin-top: 90px;
+}
+
+/* ==========================
+   2. NAVIGATION
+========================== */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.navbar {
+    min-height: 76px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+.logo-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: #2563eb; /* Bleu vif */
+    color: #ffffff;            /* Texte blanc */
+    font-weight: 800;
+    font-size: 1.1rem;
+    border-radius: 12px;       /* Coins arrondis */
+    letter-spacing: 0.5px;
+    transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.logo-icon:hover {
+    background-color: #1d4ed8; /* Bleu un peu plus foncé au survol */
+    transform: scale(1.05);
+}
+/* ========================== */
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: 0.92rem;
+    transition: color 0.25s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+/* ==========================
+   3. ACCUEIL (Fond exact style Réseau / Cybersécurité)
+========================== */
+
+.hero-wrapper {
+    background-color: #0c1b33;
+    background-image: 
+        /* Effet de lueur bleue en arrière-plan */
+        radial-gradient(circle at 15% 20%, rgba(30, 64, 175, 0.35) 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(14, 116, 144, 0.25) 0%, transparent 50%),
+        /* Grille technique subtile */
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: auto, auto, 50px 50px, 50px 50px;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    padding: 45px 0;
+}
+
+.hero {
+    min-height: auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.availability-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: #cbd5e1;
+    margin-bottom: 14px;
+}
+
+.availability-badge .dot {
+    width: 7px;
+    height: 7px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #22c55e;
+}
+
+.hero-title {
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: #ffffff;
+    margin-bottom: 12px;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: 1rem;
+    color: #94a3b8;
+    max-width: 480px;
+    line-height: 1.5;
+}
+
+/* --- ANIMATION RADAR & SHIELD COMPACT --- */
+
+.hero-radar-container {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.radar-circle {
+    position: relative;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.radar-circle::before, .radar-circle::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+.radar-circle::before {
+    width: 120px;
+    height: 120px;
+}
+
+.radar-circle::after {
+    width: 65px;
+    height: 65px;
+}
+
+.radar-sweep {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, rgba(59, 130, 246, 0.4) 0deg, transparent 60deg, transparent 360deg);
+    animation: rotateRadar 4s linear infinite;
+}
+
+.shield-icon {
+    position: relative;
+    z-index: 2;
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.5);
+}
+
+.shield-icon svg {
+    width: 36px;
+    height: 36px;
+}
+
+/* --- BADGES AUTOUR DU RADAR --- */
+
+.radar-badge {
+    position: absolute;
+    background: #ffffff;
+    color: #0f172a;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+    z-index: 3;
+    text-decoration: none;
+}
+
+.radar-badge:hover {
+    transform: scale(1.08);
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.badge-top {
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.badge-right {
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.badge-bottom {
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.badge-left {
+    left: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* ==========================
+   SECTION À PROPOS (REPRODUCTION EXACTE)
+========================== */
+
+.apropos-wrapper {
+    /* Fond dégradé très doux identique à l'image */
+    background: linear-gradient(180deg, #eaf3fd 0%, #f4f8fe 60%, #eaf3fd 100%);
+    padding: 80px 0;
+}
+
+/* Titre "À propos" avec soulignement bleu clair */
+.apropos-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #0d1e36;
+    margin-bottom: 35px;
+    position: relative;
+    display: inline-block;
+    letter-spacing: -0.5px;
+}
+
+.apropos-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 42px;
+    height: 4px;
+    background-color: #38bdf8; /* Trait bleu cyan */
+    border-radius: 2px;
+}
+
+/* Carte Bleu Nuit sombre avec coins très arrondis et ombre */
+.apropos-card {
+    background: linear-gradient(145deg, #0f2747 0%, #08172d 100%);
+    color: #cbd5e1;
+    padding: 45px 50px;
+    border-radius: 20px;
+    /* Ombre douce sur fond clair */
+    box-shadow: 0 20px 45px rgba(15, 39, 71, 0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    font-size: 1rem;
+    line-height: 1.75;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.apropos-card p {
+    color: #cbd5e1;
+    margin: 0;
+    font-weight: 400;
+}
+
+/* Adaptatif pour téléphones */
+@media (max-width: 768px) {
+    .apropos-wrapper {
+        padding: 50px 0;
+    }
+
+    .apropos-card {
+        padding: 30px 24px;
+        font-size: 0.94rem;
+        border-radius: 16px;
+    }
+
+    .apropos-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* ==========================
+   SECTION COMPÉTENCES (Style Carte Bleu Nuit & Grid)
+========================== */
+
+.competences-wrapper {
+    background: linear-gradient(180deg, #eaf3fd 0%, #f4f8fe 60%, #eaf3fd 100%);
+    padding: 80px 0;
+}
+
+/* Titre "Compétences" */
+.competences-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #0d1e36;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+    letter-spacing: -0.5px;
+}
+
+.competences-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 42px;
+    height: 4px;
+    background-color: #38bdf8;
+    border-radius: 2px;
+}
+
+/* Grille à 2 colonnes */
+.competences-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+/* Carte Bleu Nuit */
+.skills-card {
+    background: linear-gradient(145deg, #0f2747 0%, #08172d 100%);
+    border-radius: 18px;
+    padding: 32px 30px;
+    box-shadow: 0 15px 35px rgba(15, 39, 71, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Icône encadrée en haut à gauche */
+.card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    background: rgba(56, 189, 248, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #38bdf8;
+    margin-bottom: 18px;
+}
+
+.card-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.card-subtitle {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #38bdf8; /* Bleu Cyan */
+    margin-bottom: 22px;
+}
+
+/* Colonnes de listes à puces */
+.card-lists {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.card-lists ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card-lists li {
+    position: relative;
+    padding-left: 16px;
+    color: #cbd5e1;
+    font-size: 0.84rem;
+    line-height: 1.5;
+    margin-bottom: 8px;
+    font-weight: 400;
+}
+
+.card-lists li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #38bdf8;
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+/* Badges / Tags en pilules */
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 15px;
+}
+
+.tech-tags span {
+    background: rgba(255, 255, 255, 0.06);
+    color: #e2e8f0;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 6px 12px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.tech-tags span:hover {
+    background: rgba(56, 189, 248, 0.2);
+    border-color: #38bdf8;
+    color: #ffffff;
+}
+
+/* Adaptabilité Mobile & Tablette */
+@media (max-width: 992px) {
+    .competences-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-lists {
+        grid-template-columns: 1fr;
+    }
+    
+    .skills-card {
+        padding: 24px 20px;
+    }
+}
+
+/* ==========================
+   SECTION PROJETS (Style Cartes Blanches & Grille 3 Colonnes)
+========================== */
+
+.projets-wrapper {
+    background: linear-gradient(180deg, #eaf3fd 0%, #f4f8fe 60%, #eaf3fd 100%);
+    padding: 80px 0;
+}
+
+/* Titre "Projets" */
+.projets-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #0d1e36;
+    margin-bottom: 8px;
+    position: relative;
+    display: inline-block;
+    letter-spacing: -0.5px;
+}
+
+.projets-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 42px;
+    height: 4px;
+    background-color: #38bdf8;
+    border-radius: 2px;
+}
+
+.projets-description {
+    font-size: 0.95rem;
+    color: #64748b;
+    margin-top: 15px;
+    margin-bottom: 40px;
+    font-weight: 500;
+}
+
+/* Grille 3 colonnes */
+.projets-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* Carte Projet (Fond blanc) */
+.project-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 30px 28px;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+    border: 1.5px solid transparent;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover,
+.project-card.active {
+    border-color: #3b82f6; /* Bordure bleue au survol/sélection */
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.12);
+    transform: translateY(-3px);
+}
+
+.project-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.35;
+    margin-bottom: 12px;
+}
+
+.project-text {
+    font-size: 0.88rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+/* Tags / Badges de technologies (Bleu clair) */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+    margin-bottom: 22px;
+}
+
+.project-tags span {
+    background: #eff6ff;
+    color: #2563eb;
+    font-size: 0.76rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 6px;
+    border: 1px solid #dbeafe;
+}
+
+/* Lien GitHub avec icône */
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #2563eb;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.github-link:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+/* Adaptabilité Mobile & Tablette */
+@media (max-width: 1024px) {
+    .projets-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .projets-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        padding: 24px 20px;
+    }
+}
+/* ==========================
+   SECTION PARCOURS (TIMELINE)
+========================== */
+
+.parcours-wrapper {
+    background: linear-gradient(180deg, #eaf3fd 0%, #f4f8fe 60%, #eaf3fd 100%);
+    padding: 80px 0;
+}
+
+/* Titre "Parcours" */
+.parcours-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #0d1e36;
+    margin-bottom: 35px;
+    position: relative;
+    display: inline-block;
+    letter-spacing: -0.5px;
+}
+
+.parcours-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 42px;
+    height: 4px;
+    background-color: #38bdf8;
+    border-radius: 2px;
+}
+
+/* Sous-titres ("Expérience professionnelle", "Formation") */
+.parcours-section-subtitle {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #2563eb;
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+/* Conteneur de Timeline avec ligne verticale */
+.timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 45px;
+}
+
+/* Ligne bleue verticale continue à gauche */
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    bottom: 20px;
+    width: 2px;
+    background-color: #bfdbfe; /* Ligne bleue claire */
+    z-index: 1;
+}
+
+/* Élément individuel */
+.timeline-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 20px;
+    align-items: flex-start;
+    z-index: 2;
+}
+
+/* Partie gauche : Cercle + Date */
+.timeline-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 12px;
+}
+
+/* Cercle bleu sur la ligne */
+.timeline-circle {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 3px solid #3b82f6;
+    margin-left: 4px;
+    flex-shrink: 0;
+}
+
+/* Date */
+.timeline-date {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #3b82f6;
+    letter-spacing: -0.2px;
+    white-space: nowrap;
+}
+
+/* Carte Blanche d'expérience / formation */
+.timeline-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 28px 32px;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+    border: 1px solid #e2e8f0;
+}
+
+.card-role {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 6px;
+}
+
+.card-company {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 18px;
+    font-weight: 500;
+}
+
+/* Liste à puces de détails */
+.card-bullet-list {
+    margin: 0 0 20px 0;
+    padding-left: 18px;
+}
+
+.card-bullet-list li {
+    color: #475569;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Badges de technologies en bas de carte */
+.timeline-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.timeline-tags span {
+    background: #eff6ff;
+    color: #2563eb;
+    font-size: 0.76rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 6px;
+    border: 1px solid #dbeafe;
+}
+
+/* Adaptabilité Mobile & Tablette */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 6px;
+    }
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .timeline-left {
+        padding-top: 0;
+    }
+
+    .timeline-circle {
+        margin-left: 0;
+    }
+
+    .timeline-card {
+        padding: 20px 18px;
+    }
+}
+/* ==========================
+   SECTION LANGUES
+========================== */
+
+.langues-wrapper {
+    background: linear-gradient(180deg, #eaf3fd 0%, #f4f8fe 60%, #eaf3fd 100%);
+    padding: 60px 0;
+}
+
+/* Titre "Langues" avec le petit trait bleu */
+.langues-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #0d1e36;
+    margin-bottom: 35px;
+    position: relative;
+    display: inline-block;
+    letter-spacing: -0.5px;
+}
+
+.langues-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 42px;
+    height: 4px;
+    background-color: #38bdf8; /* Trait bleu cyan */
+    border-radius: 2px;
+}
+
+/* Grille à 3 colonnes */
+.langues-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Carte blanche individuelle */
+.langue-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.langue-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+}
+
+.langue-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 6px;
+}
+
+.langue-level {
+    font-size: 0.9rem;
+    color: #64748b;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Adaptabilité Mobile & Tablette */
+@media (max-width: 768px) {
+    .langues-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .langue-card {
+        padding: 20px 22px;
+    }
+}
+/* ==========================
+   SECTION CONTACT
+========================== */
+
+.contact-wrapper {
+    background: linear-gradient(180deg, #eaf3fd 0%, #f4f8fe 60%, #eaf3fd 100%);
+    padding: 70px 0 90px 0;
+}
+
+/* Titre "Contact" */
+.contact-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #0d1e36;
+    margin-bottom: 8px;
+    position: relative;
+    display: inline-block;
+    letter-spacing: -0.5px;
+}
+
+.contact-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 42px;
+    height: 4px;
+    background-color: #38bdf8; /* Trait bleu cyan */
+    border-radius: 2px;
+}
+
+.contact-description {
+    font-size: 0.95rem;
+    color: #475569;
+    margin-top: 18px;
+    margin-bottom: 35px;
+    font-weight: 500;
+}
+
+/* Grille de 3 colonnes x 2 lignes */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+/* Carte Bleu Nuit sombre */
+.contact-card {
+    background: linear-gradient(145deg, #0f2747 0%, #08172d 100%);
+    border-radius: 12px;
+    padding: 22px 24px;
+    box-shadow: 0 10px 25px rgba(15, 39, 71, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(15, 39, 71, 0.28);
+    border-color: rgba(56, 189, 248, 0.4);
+}
+
+/* Libellé (Email, Téléphone, etc.) en Bleu Cyan */
+.contact-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #38bdf8;
+    letter-spacing: 0.3px;
+}
+
+/* Valeur (Adresse email, Numéro, Lien) en Blanc Gras */
+.contact-value {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+    word-break: break-word;
+}
+
+/* Adaptabilité Mobile & Tablette */
+@media (max-width: 992px) {
+    .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-card {
+        padding: 18px 20px;
+    }
+}
+
+/* ==========================
+   8. PIED DE PAGE
+========================== */
+
+.footer {
+    padding: 25px 5%;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+/* ==========================
+   9. RESPONSIVE
+========================== */
+
+@media (max-width: 850px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+        padding-top: 75px;
+        padding-bottom: 75px;
+    }
+
+    .hero-subtitle {
+        margin: 0 auto;
+    }
+
+    .availability-badge {
+        justify-content: center;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        gap: 10px;
+    }
+
+    .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px 17px;
+    }
+
+    .nav-links a {
+        font-size: 0.82rem;
+    }
+
+    .hero-wrapper {
+        padding: 55px 0;
+    }
+
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section,
+    .section-alt {
+        padding-top: 65px;
+        padding-bottom: 65px;
+    }
+
+    .skill-card,
+    .project-card {
+        padding: 22px;
+    }
+}
+
+/* Respecter les préférences de réduction des animations */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+/* Alignement de la photo et du nom sur la même ligne */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espace entre la photo et le nom */
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/* Style de l'image de profil mis à jour */
+.profile-img {
+    width: 100px;           /* Largeur agrandie */
+    height: 100px;          /* Hauteur agrandie */
+    border-radius: 50%;     /* Garde la forme circulaire */
+    object-fit: cover;      /* Conserve les proportions de l'image */
+    border: none;           /* Supprime le contour vert */
+    box-shadow: none;       /* Supprime l'effet d'ombre vert */
+}
