@@ -249,6 +249,7 @@ section {
     height: 36px;
 }
 
+
 /* --- BADGES AUTOUR DU RADAR --- */
 
 .radar-badge {
@@ -260,40 +261,60 @@ section {
     padding: 6px 14px;
     border-radius: 50px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+    transition: background-color 0.25s ease,
+                color 0.25s ease,
+                box-shadow 0.25s ease;
     z-index: 3;
     text-decoration: none;
+    animation: badgeFloat 3s ease-in-out infinite;
 }
 
-.radar-badge:hover {
-    transform: scale(1.08);
-    background: #2563eb;
-    color: #ffffff;
-}
-
+/* Positions des badges */
 .badge-top {
-    top: 0px;
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
+    animation-delay: 0s;
 }
 
 .badge-right {
     right: -5px;
     top: 50%;
     transform: translateY(-50%);
+    animation-delay: 0.75s;
 }
 
 .badge-bottom {
-    bottom: 0px;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    animation-delay: 1.5s;
 }
 
 .badge-left {
     left: -5px;
     top: 50%;
     transform: translateY(-50%);
+    animation-delay: 2.25s;
 }
+
+/* Animation flottante */
+@keyframes badgeFloat {
+    0%, 100% {
+        translate: 0 0;
+    }
+    50% {
+        translate: 0 -8px;
+    }
+}
+
+/* Effet au survol */
+.radar-badge:hover {
+    background: #2563eb;
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
 /* ==========================
    SECTION À PROPOS (REPRODUCTION EXACTE)
 ========================== */
